@@ -4,6 +4,7 @@ import { ProductControlService } from '../../services/product-control.service';
 import { NgxLoaderService } from '../../services/ngx-loader.service';
 import { Subscription } from 'rxjs';
 import { Product } from '../../interfaces/product';
+import { CategoriesControlService } from '../../services/categories-control.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,8 @@ import { Product } from '../../interfaces/product';
 })
 export class HomeComponent implements OnInit {
   //DATA STORE VARIABLES
-    products!: Product[];
+  products!: Product[];
+  categorys: any;
 
   //SUBSCRIVE VARIABLES;
   subGetAllData!: Subscription;
@@ -20,7 +22,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductControlService,
-    private ngxLoader: NgxLoaderService
+    private ngxLoader: NgxLoaderService,
+    private categoryService: CategoriesControlService
   ) { }
 
   ngOnInit(): void {
@@ -34,8 +37,8 @@ export class HomeComponent implements OnInit {
     /**
      * CALL ALL API HANDLE METTHOD
      */
-
-    this.getAllProduct();
+      this.getAllProduct();
+      this.getAllCategory();
 
 
   }
@@ -80,6 +83,7 @@ export class HomeComponent implements OnInit {
   /**
    * HTTP REQUEST HANDLE
    * getAllProduct();
+   * getAllCategory()
    */
 
   getAllProduct() {
@@ -99,7 +103,21 @@ export class HomeComponent implements OnInit {
       }
     )
   }
-
+  getAllCategory() {
+    this.ngxLoader.onShowLoader();
+    this.categoryService.getAllCategories().subscribe(
+      (res) => {
+        if (res) {
+          this.categorys = res;
+          console.log('Categories',this.categorys);
+          this.ngxLoader.onHideLoader();
+        }
+      },
+      (err) => {
+        console.log(err);
+        this.ngxLoader.onHideLoader();
+      })
+  }
 
 
 

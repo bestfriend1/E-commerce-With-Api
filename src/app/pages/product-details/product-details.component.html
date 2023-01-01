@@ -22,7 +22,7 @@
                 <div class="section1-left">
                     <!---product-img-->
                     <div class="product-img-area">
-                        <img src="{{ singleProduct?.thumbnail ? singleProduct?.thumbnail : './assets/images/palaceholder/test.png'  }}"
+                        <img src="{{ singleProduct?.thumbnail ? (selectImg ? selectImg : singleProduct?.thumbnail ) : './assets/images/palaceholder/test.png'  }}"
                             alt="">
                         <div class="tag">
                             <ul>
@@ -49,8 +49,8 @@
                                 slidesPerView: 5
                             }
                             }" class="mySwiper">
-                            <ng-template swiperSlide *ngFor="let subImg of singleProduct?.images">
-                                <div class="slide-img">
+                            <ng-template swiperSlide *ngFor="let subImg of singleProduct?.images;let i = index">
+                                <div class="slide-img" (click)="selectImageControll(subImg)" [ngClass]="{'selected-img': selectImg === subImg}">
                                     <img [src]="subImg ? subImg : './assets/images/palaceholder/test.png'" alt="">
                                 </div>
                             </ng-template>

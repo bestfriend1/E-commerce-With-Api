@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../../interfaces/product';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ProductControlService } from '../../services/product-control.service';
+import { NgxLoaderService } from '../../services/ngx-loader.service';
 
 @Component({
   selector: 'app-product-list',
@@ -6,151 +10,79 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  //DATA STORE VARIABLES;
+
+  products!: Product[];
+  categoryName:any;
+
   filterSlide = false;
-  constructor() { }
+
+
+  constructor(
+    private router: Router,
+    private activateRoute: ActivatedRoute,
+    private productService: ProductControlService,
+    private ngxLoader: NgxLoaderService
+  ) { }
 
   ngOnInit(): void {
+    this.activateRoute.queryParamMap.subscribe((qParam) => {
+      this.categoryName = qParam.get("categoryName");
+      if(this.categoryName ){
+          this.getProductByCategory(this.categoryName);
+      }else{
+        this.getAllProduct();
+      }
+    })
   }
   /*** 
    * controllFilterSlide
    */
-  filterSlideToggle(){
-    this.filterSlide =! this.filterSlide;
+  filterSlideToggle() {
+    this.filterSlide = !this.filterSlide;
+  }
+
+  /**
+   * HTTP REQUEST HANDLE 
+   * getAllProduct();
+   * getProductByCategory();
+   */
+
+  getAllProduct() {
+    this.ngxLoader.onShowLoader();
+    this.productService.getAllProduct().subscribe(
+      (res) => {
+        if (res) {
+          this.products = res.products;
+          this.ngxLoader.onHideLoader();
+        }
+      },
+      (err) => {
+        if (err) {
+          console.log(err);
+          this.ngxLoader.onHideLoader();
+        }
+      }
+    )
+  }
+  getProductByCategory(category: any) {
+    this.ngxLoader.onShowLoader();
+    this.productService.getProductByCategory(category).subscribe((res) => {
+      if (res) {
+        this.products = res.products;
+        this.ngxLoader.onHideLoader();
+      }
+    },
+      (err) => {
+        if (err) {
+          console.log(err);
+          this.ngxLoader.onHideLoader();
+        }
+      }
+    )
   }
 
 
 
-
-  /*** products area */
-  products: any[] = [
-    {
-      _id:1,
-      image: './assets/images/temp/products/01.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:2,
-      image: './assets/images/temp/products/02.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:3,
-      image: './assets/images/temp/products/03.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:4,
-      image: './assets/images/temp/products/04 (1).jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:5,
-      image: './assets/images/temp/products/05 (1).jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:6,
-      image: './assets/images/temp/products/06.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:7,
-      image: './assets/images/temp/products/07.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:8,
-      image: './assets/images/temp/products/08.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:10,
-      image: './assets/images/temp/products/01.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:11,
-      image: './assets/images/temp/products/02.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:12,
-      image: './assets/images/temp/products/03.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:13,
-      image: './assets/images/temp/products/04 (1).jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:14,
-      image: './assets/images/temp/products/05 (1).jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:15,
-      image: './assets/images/temp/products/06.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:16,
-      image: './assets/images/temp/products/07.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-    {
-      _id:17,
-      image: './assets/images/temp/products/08.jpg',
-      name: 'Fresh Green Chilis',
-      prvPrice: 34,
-      currPrice: 23,
-      unit: 'kilo',
-    },
-  ];
 
 }

@@ -11,22 +11,11 @@
                     <!---category-menu-->
                     <div class="category-menu">
                         <ul>
-                            <li><a href="#">Vegetables</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Groceries</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Fruits</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Dairy Farms</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Sea Foods</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Diet Foods</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Dry Foods</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Fast Foods</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Drinks Foods</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Meats Foods</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">Fishes Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li *ngFor="let category of categorys?.slice(0,12)"><a [routerLink]="['/product-list']" [queryParams] ="{categoryName:category}">{{category ? category : 'N / A'}}</a> <i class="fa fa-angle-right"></i></li>
                             <li><a href="#">See All</a> <i class="fa fa-angle-right"></i></li>
                         </ul>
                     </div>
-                
-
+            
                 </div>
                 
             </div>
@@ -155,7 +144,7 @@
        </div>
         <!---section4-main-area-->
         <div class="section1-main">
-            <app-product-card-one [product]="product"  *ngFor="let product of products"></app-product-card-one>
+            <app-product-card-one [product]="product"  *ngFor="let product of products.slice(0,8)"></app-product-card-one>
         </div>
         <!--view-btn-->
         <div class="view-btn">
@@ -220,7 +209,7 @@
                 }"
                 class="mySwiper"
             >
-                <ng-template swiperSlide *ngFor="let product of products">
+                <ng-template swiperSlide *ngFor="let product of categoryData">
                     <app-product-card-one  [product]="product"></app-product-card-one>
                 </ng-template>
             </swiper>
@@ -248,7 +237,7 @@
         </div>
         <!---section5-main-->
         <div class="section5-main">
-            <app-product-card-one  [product]="product" *ngFor="let product of products"></app-product-card-one>
+            <app-product-card-one  [product]="product" *ngFor="let product of categoryData"></app-product-card-one>
         </div>
     </div>
 </div>

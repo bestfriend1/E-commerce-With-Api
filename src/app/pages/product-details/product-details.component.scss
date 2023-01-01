@@ -148,6 +148,12 @@
     box-sizing: border-box;
     border: 1px solid transparent;
     transition: all 0.3s linear;
+    img{
+        height: 90px;
+    }
+    &.selected-img{
+        border-color: $color-primary;
+    }
 }
 .slide-img:hover{
     border-color: $color-primary;

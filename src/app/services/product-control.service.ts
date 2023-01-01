@@ -26,7 +26,6 @@ export class ProductControlService implements OnInit {
   getAllProduct(){
     return this.httpClient.get<any>(`${baseUrl}/products`);
   }
-  
   getSingleProductById(_id:any){
     return this.httpClient.get<Product>(`${baseUrl}/products/${_id}`);
   }
@@ -37,5 +36,9 @@ export class ProductControlService implements OnInit {
   updateProduct(productData:any,_id:any){
     return this.httpClient.put<any>(`${baseUrl}/products/${_id}`,productData);
   }
+  getProductByCategory(category:any){
+   return this.httpClient.get<any>(`${baseUrl}/products/category/${category}`);
+  }
+
 
 }

@@ -1,6 +1,6 @@
 import { CarouselCntrlService } from './../../services/carousel-cntrl.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ProductControlService } from '../../services/product-control.service';
 import { Product } from '../../interfaces/product';
 import { NgxLoaderService } from '../../services/ngx-loader.service';
@@ -10,13 +10,14 @@ import { NgxLoaderService } from '../../services/ngx-loader.service';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, AfterViewInit {
 
   step = 1;
   _id: any;
   _categorie: any;
   products!: Product[];
   singleProduct!: Product;
+  selectImg: any;
 
   constructor(
     private router: Router,
@@ -29,18 +30,21 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
 
     this.activateRoute.queryParamMap.subscribe((q) => {
-      if (q) {
-        this._id = q.get('productId');
-        console.log(this._id);
+      this._id = q.get('productId');
+      if (this._id) {
         this.getSingleProduct(this._id);
-      }else{
-        console.log('Id not found');
+        console.log('Product-Id', this._id);
+      } else {
+        console.log('Id Not Founded');
       }
     })
     this.activateRoute.queryParamMap.subscribe((q) => {
-      if (q) {
-        this._categorie = q.get('cat');
+      this._categorie = q.get('cat');
+      if (this._categorie) {
+        this.getProductByCategory(this._categorie);
         console.log(this._categorie);
+      } else {
+        console.log('Category Not Founded')
       }
     })
     /**
@@ -48,6 +52,11 @@ export class ProductDetailsComponent implements OnInit {
      */
 
   }
+
+  ngAfterViewInit(): void {
+
+  }
+
 
   /*** 
    * stepControll()
@@ -81,6 +90,30 @@ export class ProductDetailsComponent implements OnInit {
     )
   }
 
+  getProductByCategory(category: any) {
+    this.ngxLoader.onShowLoader();
+    this.productService.getProductByCategory(category).subscribe((res) => {
+      if (res) {
+        this.products = res.products;
+        this.ngxLoader.onHideLoader();
+      }
+    },
+      (err) => {
+        if (err) {
+          console.log(err);
+          this.ngxLoader.onHideLoader();
+        }
+      }
+    )
+  }
+
+  selectImageControll(image: any) {
+    if (image) {
+      this.selectImg = image;
+    } else {
+      this.selectImg = this.singleProduct.thumbnail;
+    }
+  }
 
 
 
