@@ -1,0 +1,381 @@
+<!--banner-area-->
+<div class="banner-area">
+    <div class="container">
+        <div class="banner-main">
+            <h1>PRODUCT Details</h1>
+            <ul>
+                <li><a routerLink="/home">Home</a></li>
+                <li><span>/</span></li>
+                <li><a [routerLink]="'../product-details'" [queryParams] ="{cat:singleProduct?.category,productId:singleProduct?.id}">Product-details</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---product-area-->
+<main class="product-area">
+    <!---section1-->
+    <div class="section1">
+        <div class="container">
+            <!---section1-main-->
+            <div class="section1-main carousel">
+                <!---section1-left-->
+                <div class="section1-left">
+                    <!---product-img-->
+                    <div class="product-img-area">
+                        <img src="{{ singleProduct?.thumbnail ? singleProduct?.thumbnail : './assets/images/palaceholder/test.png'  }}"
+                            alt="">
+                        <div class="tag">
+                            <ul>
+                                <li *ngIf="singleProduct?.category"><span class="new">{{singleProduct?.category}}</span>
+                                </li>
+                                <li *ngIf="singleProduct?.discountPercentage"><span
+                                        class="discount">-{{singleProduct?.discountPercentage}}%</span></li>
+                            </ul>
+                        </div>
+                    </div><!---end-->
+                    <div class="product-slide">
+                        <swiper [slidesPerView]="3" [spaceBetween]="13" [autoplay]="true" [loop]="true"
+                            [grabCursor]="true" [breakpoints]="{
+                            '520': {
+                                slidesPerView: 3
+                            },
+                            '768': {
+                                slidesPerView: 3.5
+                            },
+                            '900': {
+                                slidesPerView: 5
+                            },
+                            '1000': {
+                                slidesPerView: 5
+                            }
+                            }" class="mySwiper">
+                            <ng-template swiperSlide *ngFor="let subImg of singleProduct?.images">
+                                <div class="slide-img">
+                                    <img [src]="subImg ? subImg : './assets/images/palaceholder/test.png'" alt="">
+                                </div>
+                            </ng-template>
+                        </swiper>
+                    </div>
+                </div><!--section1-left-end-->
+                <!----section1-right-->
+                <div class="section1-right">
+                    <!---prev-and-next-bar-->
+                    <div class="next-and-prev-product">
+                        <div class="prev">
+                            <h3><i class="fa fa-arrow-left"></i> Prev Product</h3>
+                        </div>
+                        <div class="next">
+                            <h3> Next Product<i class="fa fa-arrow-right"></i></h3>
+                        </div>
+                    </div> <!---prev-and-next-bar--end-->
+                    <!---product-details-->
+                    <div class="product-details">
+                        <!---product-title-->
+                        <div class="product-title">
+                            <a href="#">{{singleProduct?.title? singleProduct?.title:'N/A'}}</a>
+                            <div class="product-sku">
+                                <ul>
+                                    <li><span>CATEGORY: {{singleProduct?.category | uppercase}}</span></li>
+                                    <li><span>BRAND: {{singleProduct?.brand | uppercase}}</span></li>
+                                </ul>
+                            </div>
+                        </div><!---end-->
+                        <!---product-review-->
+                        <div class="product-rate">
+                            <ul>
+                                <li><span><i class="fa fa-star"></i></span></li>
+                                <li><span><i class="fa fa-star"></i></span></li>
+                                <li><span><i class="fa fa-star"></i></span></li>
+                                <li><span><i class="fa fa-star"></i></span></li>
+                                <li><span><i class="fa fa-star"></i></span></li>
+                                <li><a href="#">({{singleProduct?.rating}})</a></li>
+                            </ul>
+                        </div><!---end-->
+                        <!---product-price-->
+                        <div class="product-price">
+                            <h3><del>$8.00</del> <span>${{singleProduct?.price}}<small>/Per Kilo</small></span></h3>
+                        </div><!---end-->
+                        <!---product-discription-->
+                        <div class="product-discription">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit facere harum natus amet soluta
+                                fuga consectetur alias veritatis quisquam ab eligendi itaque eos maiores quibusdam.</p>
+                        </div><!---end-->
+                        <div class="product-tag">
+                            <ul>
+                                <li><span>Tags:</span></li>
+                                <li><button>Organic</button></li>
+                                <li><button>Fruits</button></li>
+                                <li><button>Chilis</button></li>
+                            </ul>
+                        </div><!---end-->
+                        <!--share-->
+                        <div class="share">
+                            <ul>
+                                <li><span>Share:</span></li>
+                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div><!---end-->
+                        <!---product-btn-->
+                        <div class="product-btn">
+                            <div class="cart-btn">
+                                <button><i class="fa-solid fa-basket-shopping"></i>Add to cart</button>
+                            </div>
+                            <div class="wish-btn">
+                                <ul>
+                                    <li><button><i class="fa fa-heart"></i> Add to wish</button></li>
+                                    <li><button><i class="fa-solid fa-shuffle"></i> Compare this</button></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!--section1-end-->
+
+    <!---section2-->
+    <div class="section-2">
+        <div class="container">
+            <!---section2-filter-->
+            <div class="filter-area">
+                <ul>
+                    <li><button [class]="step == 1 ?'active-filter-btn':'in'"
+                            (click)="stepControll(1)">DESCRIPTIONS</button></li>
+                    <li><button [class]="step == 2 ?'active-filter-btn':'in'" (click)="stepControll(2)">
+                            SPECIFICATIONS</button></li>
+                    <li><button [class]="step == 3 ?'active-filter-btn':'in'" (click)="stepControll(3)">REVIEWS (2)
+                        </button></li>
+                </ul>
+            </div>
+            <!---section5-main-->
+            <div class="section5-main">
+                <!---discription-->
+                <div class="descripiton-area" *ngIf="step == 1">
+                    <div class="description-main">
+                        <!---description-left-->
+                        <div>
+                            <div class="description-left">
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae delectus natus
+                                    quasi aperiam. Nulla perspiciatis ullam ipsa, magni animi eligendi quis mollitia
+                                    dolor omnis alias ut aspernatur est voluptatem illo totam iste consequatur vitae
+                                    laborum ipsam facilis! Ipsa, voluptatum neque dolor facere autem maiores pariatur,
+                                    eveniet veritatis vero iure obcaecati Lorem ipsum dolor, sit amet consectetur
+                                    adipisicing elit. Recusandae delectus natus quasi</p>
+                                <ul>
+                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing.</li>
+                                    <li>labore possimus architecto, saepe nobis ex mollitia</li>
+                                    <li>mollitia soluta magni placeat. Eaque sit praesentium</li>
+                                    <li>distinctio ab a exercitationem officiis labore possimus</li>
+                                </ul>
+                            </div><!---end-->
+                        </div>
+                        <!---description-right-->
+                        <div>
+                            <div class="description-right">
+                                <!---description-img-->
+                                <div class="description-img">
+                                    <img src="./assets/images/temp/image/video.jpg" alt="">
+                                    <div class="video-play">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div><!---end-->
+                </div><!---end-->
+
+                <!---specification-->
+                <div class="specification-area" *ngIf="step == 2">
+                    <div class="specification-main">
+
+                        <div class="table">
+                            <div class="table-body">
+                                <div class="table-row">
+                                    <div class="table-heading">
+                                        <h3>Product code</h3>
+                                    </div>
+                                    <div class="table-data">
+                                        <p>SKU: 101783</p>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-heading">
+                                        <h3>Weight</h3>
+                                    </div>
+                                    <div class="table-data">
+                                        <p> 1kg, 2kg</p>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-heading">
+                                        <h3>Styles</h3>
+                                    </div>
+                                    <div class="table-data">
+                                        <p> @Girly</p>
+                                    </div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-heading">
+                                        <h3>Properties</h3>
+                                    </div>
+                                    <div class="table-data">
+                                        <p> Short Dress</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!---review-area-->
+                <div class="review-area" *ngIf="step == 3">
+                    <div class="review-main-area">
+                        <!---user-review-->
+                        <div class="user-review">
+                            <!---user-data-->
+                            <div class="main-review">
+                                <div class="user-data">
+                                    <div class="user-img">
+                                        <img src="./assets/images/temp/image/user.jpg" alt="">
+                                    </div>
+                                    <div class="user-name">
+                                        <a href="#">Miron Mahmud</a>
+                                        <span>June 02, 2020</span>
+                                    </div>
+                                </div>
+                                <!--user-review-rating-->
+                                <div class="user-review-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic amet qui
+                                        velit, molestiae suscipit perferendis, autem doloremque blanditiis dolores nulla
+                                        excepturi ea nobis!</p>
+                                </div>
+                                <div class="review-input-area">
+                                    <div class="reviewo-input">
+                                        <input type="text" value="" placeholder="Replay Your Thoughts">
+                                    </div>
+                                    <div class="rply-btn">
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div><!---end-->
+                            <!---replay-area-->
+                            <div class="replay-review-area">
+                                <!---replay-review-->
+                                <div class="replay-review" *ngFor="let data of [1,2,3]">
+                                    <div class="user-data">
+                                        <div class="user-img">
+                                            <img src="./assets/images/temp/image/user.jpg" alt="">
+                                        </div>
+                                        <div class="user-name">
+                                            <a href="#">Miron Mahmud</a>
+                                            <span>June 02, 2020</span>
+                                        </div>
+                                    </div>
+                                    <!--user-review-rating-->
+                                    <div class="user-review-rating">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic amet qui
+                                            velit, molestiae suscipit perferendis, autem doloremque blanditiis dolores
+                                            nulla excepturi ea nobis!</p>
+                                    </div>
+                                    <div class="review-input-area">
+                                        <div class="reviewo-input">
+                                            <input type="text" value="" placeholder="Replay Your Thoughts">
+                                        </div>
+                                        <div class="rply-btn">
+                                            <button>Replay</button>
+                                        </div>
+                                    </div>
+                                </div><!--end-->
+
+
+                            </div>
+                        </div><!---end-user-reivew-->
+
+
+                        <!---user-review-->
+                        <div class="user-review">
+                            <!---user-data-->
+                            <div class="main-review">
+                                <div class="user-data">
+                                    <div class="user-img">
+                                        <img src="./assets/images/temp/image/user.jpg" alt="">
+                                    </div>
+                                    <div class="user-name">
+                                        <a href="#">Miron Mahmud</a>
+                                        <span>June 02, 2020</span>
+                                    </div>
+                                </div>
+                                <!--user-review-rating-->
+                                <div class="user-review-rating">
+                                    <ul>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                        <li><i class="fa fa-star"></i></li>
+                                    </ul>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus hic amet qui
+                                        velit, molestiae suscipit perferendis, autem doloremque blanditiis dolores nulla
+                                        excepturi ea nobis!</p>
+                                </div>
+                                <div class="review-input-area">
+                                    <div class="reviewo-input">
+                                        <input type="text" value="" placeholder="Replay Your Thoughts">
+                                    </div>
+                                    <div class="rply-btn">
+                                        <button>Replay</button>
+                                    </div>
+                                </div>
+                            </div><!---end-->
+                        </div><!---end-user-reivew-->
+
+
+
+
+
+                    </div><!---main-end-->
+                </div><!---end-->
+
+
+
+
+
+            </div><!--end-->
+
+        </div>
+    </div>
+
+
+
+</main><!---product-area-end-->
+
+<!----Related This Items-->
+<div class="section3">
+    <div class="container">
+        <div class="title-area">
+            <h1>Related This Items</h1>
+        </div>
+        <div class="section3-main">
+            <app-product-card-one [product]="data" *ngFor="let data of products"></app-product-card-one>
+        </div>
+
+        <!--view-btn-->
+        <div class="view-btn">
+            <a href="#"><i class="fa fa-eye"></i> View All Related</a>
+        </div>
+    </div>
+</div>

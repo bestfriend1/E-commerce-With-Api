@@ -1,0 +1,35 @@
+<div class="product" [id]="product?.id"  >
+  <div class="product-image">
+    <img src="{{ product?.thumbnail ? product?.thumbnail : './assets/images/palaceholder/test.png'}}" alt="" [routerLink]="['/product-details']"  [queryParams]="{cat:product?.category,productId:product?.id}"/>
+    <div class="icons">
+       <ul>
+         <li><a href="#"><i class="fa-solid fa-shuffle"></i></a></li>
+         <li><a href="#"><i class="fa fa-play"></i></a></li>
+         <li><a [routerLink]="['/product-details']" [queryParams]="{cat:product?.category,productId:product?.id}"><i class="fa fa-eye"></i></a></li>
+       </ul>
+    </div>
+    <!--tag-->
+     <div class="tag">
+        <span>{{product?.brand}}</span>
+     </div>
+    <!---wish-->
+    <span class="wish"><i class="fa fa-heart"></i></span>
+  </div>
+  <div class="product-body">
+    <div class="rating-area">
+      <ul>
+         <li><i class="fa fa-star"></i></li>
+         <li><i class="fa fa-star"></i></li>
+         <li><i class="fa fa-star"></i></li>
+         <li><i class="fa fa-star"></i></li>
+         <li><i class="fa fa-star"></i></li>
+         <li><span>({{product?.rating}})</span></li>
+      </ul>
+    </div>
+    <a [routerLink]="['/product-details']" [queryParams]="{cat:product?.category,productId:product?.id}">{{ product.title ? product?.title :'N/A' }}</a>
+    <div class="product-price">
+      <span class="prevPrice">{{product.discountPercentage}}%</span> <span class="currPrice">${{ product.price}}</span>
+    </div>
+    <button class="product-button"><i class="fa-solid fa-basket-shopping"></i>Add</button>
+  </div>
+  </div>

@@ -1,0 +1,471 @@
+<!---banner-area-->
+<div class="banner-area">
+    <div class="container">
+        <div class="banner-main">
+            <div class="category-area">
+                <div class="banner-category">
+                    <!---category-head-->
+                    <div class="banner-category-head">
+                        <h3><i class="fa fa-bars"></i> TOP CATEGORIES</h3>
+                    </div>
+                    <!---category-menu-->
+                    <div class="category-menu">
+                        <ul>
+                            <li><a href="#">Vegetables</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Groceries</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Fruits</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Dairy Farms</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Sea Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Diet Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Dry Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Fast Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Drinks Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Meats Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">Fishes Foods</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a href="#">See All</a> <i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div>
+                
+
+                </div>
+                
+            </div>
+            <!---banner-data-->
+            <div class="banner-data">
+              <!--banner-slider-->
+              <div class="banner-slide-area carousel">
+                <swiper
+                [slidesPerView]="1"
+                [spaceBetween]="20"
+                [autoplay]="true"
+                [loop]="true"
+                [pagination]="{
+                    clickable:true
+                }"
+                class="mySwiper"
+            >
+                <ng-template swiperSlide *ngFor="let product of [1,2,3]">
+                        <!---banner-start-->
+                        <div class="banner">
+                            <div class="banner-left">
+                            <div>
+                                <h3>we are delivered organic foods item within 24 hours.</h3>
+                                <button routerLink="../product-list"><i class="fa-solid fa-basket-shopping"></i>Showp Now</button>
+                            </div>
+                            </div>
+                            <div class="banner-right">
+                                <img src="./assets/images/temp/banner/03.png" alt="">
+                            </div>
+                        </div><!---banner-end-->
+                </ng-template>
+            </swiper>
+              </div><!---banner-slide-area-end-->
+              
+              <!---banner-data-bottom-->
+              <div class="banner-data-bottom">
+                <div class="sub-banner">
+                    <a href="#"><img src="./assets/images/temp/banner/04.jpg" alt=""></a>
+                </div>
+                <div class="sub-banner">
+                    <a href="#"><img src="./assets/images/temp/banner/05.jpg" alt=""></a>
+                </div>
+              </div><!---banner-bottom-end-->
+                
+            </div><!---DATA-END-->
+        </div>
+    </div>
+</div>
+
+<!----services-area-->
+<div class="service-area">
+    <div class="container">
+        <div class="service-main">
+            <!--service-details-->
+            <div class="service-details">
+                <div class="service-icon">
+                    <span><i class="fas fa-truck"></i></span>
+                </div>
+                <div class="service-text">
+                    <h3>Free Home Delivery</h3>
+                    <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                </div>
+            </div><!--service-details-end-->
+               <!--service-details-->
+               <div class="service-details">
+                <div class="service-icon">
+                    <span><i class="fas fa-sync-alt"></i></span>
+                </div>
+                <div class="service-text">
+                    <h3>Instant Return Policy</h3>
+                    <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                </div>
+            </div><!--service-details-end-->
+               <!--service-details-->
+               <div class="service-details">
+                <div class="service-icon">
+                    <span><i class="fas fa-headset"></i></span>
+                </div>
+                <div class="service-text">
+                    <h3>quick support system</h3>
+                    <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                </div>
+            </div><!--service-details-end-->
+               <!--service-details-->
+               <div class="service-details">
+                <div class="service-icon">
+                    <span><i class="fas fa-lock"></i></span>
+                </div>
+                <div class="service-text">
+                    <h3>Secure Payment Way</h3>
+                    <p>Lorem ipsum dolor sit amet adipisicing elit nobis.</p>
+                </div>
+            </div><!--service-details-end-->
+
+        </div>
+    </div>
+</div>
+<div class="section-1">
+    <div class="container">
+       <div class="section1-top">
+            <!--title-area-->
+        <div class="title-area">
+            <h1>Best Deals On Items</h1>
+        </div>
+        <!--time-area-->
+        <div class="time-container-1">
+          <div class="time-container">
+            <div class="show-time">
+              <span>{{ days }}</span>
+              <small>Days</small>
+            </div>
+            <div class="show-time">
+              <span>{{ hours }}</span>
+              <small>Hours</small>
+            </div>
+            <div class="show-time">
+              <span>{{ min }}</span>
+              <small>Minutes</small>
+            </div>
+            <div class="show-time">
+              <span>{{ sec }}</span>
+              <small>Seconds</small>
+            </div>
+          </div>
+        </div>
+       </div>
+        <!---section4-main-area-->
+        <div class="section1-main">
+            <app-product-card-one [product]="product"  *ngFor="let product of products"></app-product-card-one>
+        </div>
+        <!--view-btn-->
+        <div class="view-btn">
+            <a routerLink="../product-list"><i class="fa fa-eye"></i> View All Deals</a>
+        </div>
+    </div>
+</div>
+<!---section-2 --->
+<div class="section-2">
+    <div class="container">
+        <div class="title-area">
+            <h1>Our Featured Items</h1>
+        </div>
+        <!---secton2-main-->
+        <div class="section2-main">
+            <app-feature-card *ngFor="let data of  featureData" [data]="data"></app-feature-card>
+        </div>
+
+    <div class="view-btn">
+        <a routerLink="../product-list"><i class="fa fa-eye"></i> View All Feature</a>
+    </div>
+    </div>
+</div>
+
+<!---section-3-->
+<div class="section-3">
+    <div class="container">
+        <div class="section3-main">
+            <h4>Only <span>$45</span> per Kilogram</h4>
+            <h2>Fresh Blueberries</h2>
+            <button routerLink="../product-list"><i class="fa-solid fa-basket-shopping"></i>Show Now</button>
+        </div>
+    </div>
+</div>
+
+<!---section-4-->
+<div class="section-4">
+    <div class="container">
+        <div class="title-area">
+            <h1>Collected New Items</h1>
+        </div>
+        <div class="section4-main carousel">
+            <swiper
+                [slidesPerView]="1"
+                [spaceBetween]="20"
+                [autoplay]="true"
+                [navigation]="true"
+                [breakpoints]="{
+                '0': {
+                    slidesPerView: 2,
+                    spaceBetween:15
+                },
+                '768': {
+                    slidesPerView: 3
+                },
+                '1000': {
+                    slidesPerView: 4
+                },
+                '1200': {
+                    slidesPerView: 5
+                }
+                }"
+                class="mySwiper"
+            >
+                <ng-template swiperSlide *ngFor="let product of products">
+                    <app-product-card-one  [product]="product"></app-product-card-one>
+                </ng-template>
+            </swiper>
+        </div>
+        <!--view-btn-->
+        <div class="view-btn">
+            <a routerLink="../product-list"><i class="fa fa-eye"></i> View All Item</a>
+        </div>
+    </div>
+</div>
+
+<!---section5-->
+<div class="section-5">
+    <div class="container">
+        <div class="title-area">
+            <h1>Browse By Top Niche</h1>
+        </div>
+        <!---section5-filter-->
+        <div class="filter-area">
+            <ul>
+                <li><button class="active-filter-btn"><i class="fa-solid fa-sack-dollar"></i>Top Sales</button></li>
+                <li><button> <i class="fa fa-star"></i> Top Rating</button></li>
+                <li><button><i class="fa-solid fa-percent"></i> Top Discount </button></li>
+            </ul>
+        </div>
+        <!---section5-main-->
+        <div class="section5-main">
+            <app-product-card-one  [product]="product" *ngFor="let product of products"></app-product-card-one>
+        </div>
+    </div>
+</div>
+<!---section-6-->
+<div class="section-6">
+    <div class="container">
+        <div class="title-area">
+            <h1>Shop By Categories</h1>
+        </div>
+        <!---section6-main-->
+        <div class="section6-main carousel">
+            <swiper
+                [slidesPerView]="2"
+                [spaceBetween]="16"
+                [autoplay]="true"
+                [loop]="true"
+                [navigation]="true"
+                [breakpoints]="{
+                '520': {
+                    slidesPerView: 3,
+                    spaceBetween:15
+                },
+                '768': {
+                    slidesPerView: 3.5
+                },
+                '1000': {
+                    slidesPerView: 5,
+                    spaceBetween:20
+                },
+                '1200': {
+                    slidesPerView: 5,
+                    spaceBetween:40
+                }
+                }"
+                class="mySwiper"
+            >
+                <ng-template swiperSlide *ngFor="let data of categoryData">
+                     <!---category-card-->
+                        <div class="category-card" [id]="data?._id">
+                            <div class="category-image">
+                                <img [src]="data?.image" alt="">
+                                <div class="link">
+                                    <a [routerLink]="[data?.routerLink]"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                            <div class="category-body">
+                                <a [routerLink]="[data?.routerLink]">{{data?.title}}</a>
+                                <h4>{{data?.subTitle}}</h4>
+                            </div>
+                        </div>
+                </ng-template>
+            </swiper>
+           
+        </div>
+        <div class="view-btn">
+            <a routerLink="../product-list"><i class="fa fa-eye"></i>View All Category</a>
+        </div>
+    </div>
+</div>
+<!---section - 7-->
+<div class="section-7">
+    <div class="container">
+        <!---title-area-->
+        <div class="title-area">
+            <h1>Shop By Brands</h1>
+        </div>
+        <!----section7-main-->
+        <div class="section7-main carousel">
+            <swiper
+                [slidesPerView]="1"
+                [spaceBetween]="16"
+                [autoplay]="true"
+                [loop]="true"
+                [navigation]="true"
+                [breakpoints]="{
+                '380': {
+                        slidesPerView: 2,
+                        spaceBetween:15
+                },
+                '520': {
+                    slidesPerView: 2.5,
+                    spaceBetween:15
+                },
+                '768': {
+                    slidesPerView: 3.5
+                },
+                '1000': {
+                    slidesPerView: 5,
+                    spaceBetween:20
+                },
+                '1200': {
+                    slidesPerView: 5,
+                    spaceBetween:40
+                }
+                }"
+                class="mySwiper"
+            >
+                <ng-template swiperSlide *ngFor="let data of brandData">
+                     <!---brand-card-->
+                        <div class="brand-card" [id]="data?._id">
+                            <div class="brand-image">
+                                <img [src]="data?.image" [alt]="data?.title">
+                                <div class="link">
+                                    <a [routerLink]="[data?.routerLink]"><i class="fa fa-link"></i></a>
+                                </div>
+                            </div>
+                            <div class="brand-body">
+                                <h4>{{data?.title}}</h4>
+                                <h5>{{data?.subTitle}}</h5>
+                            </div>
+                        </div>
+                </ng-template>
+            </swiper>
+            
+        </div>
+        <!---view-btn-->
+        <div class="view-btn">
+            <a routerLink="../product-list"><i class="fa fa-eye"></i>View All Brands</a>
+        </div>
+    </div>
+</div>
+<!---section-8-->
+<div class="section-8">
+    <div class="container">
+        <div class="title-area">
+            <h1>Client's Feedback</h1>
+        </div>
+        <div class="section8-main carousel">
+            <swiper
+                [effect]="'coverflow'"
+                [grabCursor]="true"
+                [autoplay]="true"
+                [loop]="true"
+                [centeredSlides]="true"
+                [zoom]="true"
+                [grabCursor]="true"
+                [navigation]="true"
+                [slidesPerView]="'auto'"
+                [coverflowEffect]="{
+                rotate: 60,
+                stretch: 0,
+                depth:100,
+                modifier: 1,
+                slideShadows: true
+                }"
+                [breakpoints]="{
+                    '0': {
+                        slidesPerView: 1,
+                        spaceBetween:15
+                    },
+                    '768': {
+                        slidesPerView: 1.4
+                    },
+                    '1000': {
+                        slidesPerView: 1.6,
+                        spaceBetween:100
+                    }
+                    }"
+                class="mySwiper"
+            >
+                <ng-template swiperSlide *ngFor="let data of [1,2,3,4,5]">
+
+                    <!--client-card-->
+                        <div class="client-card">
+                            <span><i class="fas fa-quote-left"></i></span>
+                            <p>Lorem ipsum dolor consectetur adipisicing elit neque earum sapiente vitae obcaecati magnam doloribus magni provident ipsam</p>
+                            <div class="client-user">
+                                <h2>mahmud hasan</h2>
+                                <ul>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                    <li><i class="fa fa-star"></i></li>
+                                </ul>
+                                <img src="./assets/images/temp/image/client1.jpg" alt="">
+                            </div>
+                        </div>
+                </ng-template>
+            </swiper>
+            
+        </div>
+    </div>
+</div>
+<!---section9--->
+<div class="section-9">
+    <div class="container">
+        <!---title-area-->
+        <div class="title-area">
+            <h1>Read Our Articles</h1>
+        </div>
+        <div class="section9-main carousel">
+            <swiper
+                [slidesPerView]="1"
+                [spaceBetween]="30"
+                [autoplay]="true"
+                [loop]="true"
+                [navigation]="true"
+                [breakpoints]="{
+                '768': {
+                    slidesPerView:2
+                },
+                '990': {
+                    slidesPerView: 3
+                }
+                }"
+                class="mySwiper"
+            >
+                <ng-template swiperSlide *ngFor="let data of brandData">
+                    <app-blog-card ></app-blog-card>
+                </ng-template>
+            </swiper>
+           
+        </div>
+        <!---view-btn-->
+        <div class="view-btn">
+            <a href="#"><i class="fa fa-eye"></i> View All Blog</a>
+        </div>
+    </div>
+</div>

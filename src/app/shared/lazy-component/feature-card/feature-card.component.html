@@ -1,0 +1,42 @@
+  <!---feture-card-start-->
+  <div class="product" routerLink="../product-details">
+    <!----future-card-img-->
+    <div class="product-image" [routerLink]="[data?.routerLink]">
+        <img [src]="data?.image" alt="">
+        <div class="icons">
+            <ul>
+              <li><a href="#"><i class="fa-solid fa-shuffle"></i></a></li>
+              <li><a href="#"><i class="fa fa-play"></i></a></li>
+              <li><a href="#"><i class="fa fa-eye"></i></a></li>
+            </ul>
+         </div>
+         <!--tag-->
+          <div class="tag">
+             <span>Feature</span>
+          </div>
+         <!---wish-->
+         <span class="wish"><i class="fa fa-heart"></i></span>
+    </div>
+    <div class="product-body">
+        <a [routerLink]="[data?.routerLink]">{{data?.name}}</a>
+        <div class="rating-area">
+            <ul>
+               <li><i class="fa fa-star"></i></li>
+               <li><i class="fa fa-star"></i></li>
+               <li><i class="fa fa-star"></i></li>
+               <li><i class="fa fa-star"></i></li>
+               <li><i class="fa fa-star"></i></li>
+               <li><span>(3 Reviews)</span></li>
+            </ul>
+          </div>
+        <div class="product-price">
+          <span class="prevPrice">${{data?.prvPrice}}/<small>{{data?.unit}}</small></span> 
+      </div>
+      <!--product-desc-->
+      <div class="product-desc">
+        <p>{{data?.desc}}</p>
+      </div>
+      <button class="product-button"><i class="fa-solid fa-basket-shopping"></i> Add</button>
+
+</div>
+</div><!---end-->

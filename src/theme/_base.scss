@@ -1,0 +1,128 @@
+@import'./variables';
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    display: block;
+    width: 100%;
+    user-select: none;
+    height: auto;
+    box-sizing: border-box;
+    font-family:$font-en-primary;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0px;
+    margin: 0px;
+    background-color: #F5F6F7;
+}
+a{
+    display: block;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+a,button,img{
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: none;
+    color: #000;
+}
+h1,h2,h3,h4,h5,h6,p{
+    display: block;
+    margin: 0px!important;
+}
+img{
+    display: block;
+    width: 100%;
+}
+.clearfix::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.container{
+    display: block;
+    max-width: $container-max-width;
+    width: 100%;
+    margin: auto;
+}
+@media(max-width:1400px){
+    .container{
+        max-width: 1180px;
+    }
+}
+@media(max-width:1200px){
+    .container{
+        max-width: 960px;
+    }
+}
+@media(max-width:990px){
+    .container{
+        max-width: 720px;
+    }
+}
+@media(max-width:768px){
+    .container{
+        max-width: 540px;
+    }
+}
+/**** global style start ****/
+
+.view-btn{
+    display: block;
+    margin-top: 50px;
+}
+.view-btn a{
+    background-color: $color-primary;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 220px;
+    width: 100%;
+    margin: auto;
+    color:#fff;
+    font-family: $font-en-primary;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    padding: 13px 15px;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    gap: 5px;
+    border-radius: 6px;
+    border: 2px solid $color-primary;
+    transition: all 0.3s linear;
+}
+.view-btn a i{
+    font-size: 15px;
+}
+.view-btn a:hover{
+    background-color: #fff;
+    color: $color-primary;
+}
+.title-area{
+    display: block;
+    margin-bottom: 33px;
+    text-align: center;
+}
+.title-area h1{
+    color: $heading-color;
+    font-family: $font-en-primary;
+    font-style: normal;
+    font-weight:600;
+    font-size: 38px;
+    display: block;
+    line-height: 50px;
+}
+@media(max-width:768px){
+    .title-area h1{
+        font-size: 30px;
+        line-height: 35px;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,404 @@
+<!--banner-area-->
+<div class="banner-area">
+    <div class="container">
+        <div class="banner-main">
+            <h1>Product List</h1>
+            <ul>
+                <li><a routerLink="/home">Home</a></li>
+                <li><span>/</span></li>
+                <li><a routerLink="/product-list">Product List</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---product-list-area-->
+<div class="product-list-area">
+    <!--container-->
+    <div class="container">
+        <!---product-list-main-->
+        <div class="product-list-main">
+            <!--product-filter-->
+            <div class="product-filter-area" [class]="filterSlide?'filter-slide-active':'filter-slide-inactive'">
+                <!---filter-offer-->
+                <div class="product-filter-offer">
+                     <img src="./assets/images/temp/image/product-list-offer.jpg" alt="">
+                </div><!---end-->
+                <!---filter--->
+                <div class="filtered">
+                    <!---filter-title-->
+                    <div class="filter-title">
+                        <h3>FILTER BY PRICE</h3>
+                    </div>
+                    <!--filter-body-->
+                    <div class="filter-body">
+                         <!---price-->
+                         <div class="price">
+                            <div>
+                                <input type="text" value="" placeholder="Min - 00">
+                            </div>
+                            <div>
+                                <input type="text" value=""  placeholder="Max - 5k">
+                            </div>
+                         </div>
+                    </div><!---end-->
+                    <!--filter-btn-->
+                    <div class="filter-btn">
+                        <button><i class="fa fa-search"></i>Search</button>
+                    </div>
+                </div><!---end-->
+                  <!---filter--->
+                  <div class="filtered">
+                    <!---filter-title-->
+                    <div class="filter-title">
+                        <h3>FILTER BY RATING</h3>
+                    </div>
+                    <!--filter-body-->
+                    <div class="filter-body">
+                         <ul>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div>
+                                    <span>(23)</span>
+                                </div>
+                            </mat-checkbox></li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div>
+                                    <span>(35)</span>
+                                </div>
+                            </mat-checkbox></li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div>
+                                    <span>(40)</span>
+                                </div>
+                            </mat-checkbox></li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                </div>
+                                <div>
+                                    <span>(50)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            
+                         </ul>
+                    </div><!---end-->
+                    <!--filter-btn-->
+                    <div class="filter-btn">
+                        <button><i class="fa fa-trash"></i>Clear</button>
+                    </div>
+                </div><!---end-->
+                <!---filter--->
+                <div class="filtered">
+                    <!---filter-title-->
+                    <div class="filter-title">
+                        <h3>FILTER BY TAG</h3>
+                    </div>
+                    <!--filter-body-->
+                    <div class="filter-body">
+                         <ul>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>
+                                        New Items</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Sale Items</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Rating Items</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Feature Items</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Discount Items</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            
+                         </ul>
+                    </div><!---end-->
+                    <!--filter-btn-->
+                    <div class="filter-btn">
+                        <button><i class="fa fa-trash"></i>Clear</button>
+                    </div>
+                </div><!---end-->
+
+                  <!---filter--->
+                  <div class="filtered">
+                    <!---filter-title-->
+                    <div class="filter-title">
+                        <h3>FILTER BY BRAND</h3>
+                    </div>
+                    <div class="filter-search">
+                        <input type="text" value="" placeholder="Search...">
+                    </div>
+                    <!--filter-body-->
+                    <div class="filter-body">
+                         <ul>
+                            <li>
+                                <mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Mari Gold</span>
+                                </div>
+                                <div>
+                                    <span>Tredar</span>
+                                </div>
+                            </mat-checkbox >
+                        </li>
+                            <li>
+                                <mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Keya</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox>
+                        </li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Diamond</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Lilly's</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Fremant</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Boroclas</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Avocads</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            
+                         </ul>
+                    </div><!---end-->
+                    <!--filter-btn-->
+                    <div class="filter-btn">
+                        <button><i class="fa fa-trash"></i>Clear</button>
+                    </div>
+                </div><!---end-->
+
+                   <!---filter--->
+                   <div class="filtered">
+                    <!---filter-title-->
+                    <div class="filter-title">
+                        <h3>FILTER BY CATEGORY</h3>
+                    </div>
+                    <div class="filter-search">
+                        <input type="text" value="" placeholder="Search...">
+                    </div>
+                    <!--filter-body-->
+                    <div class="filter-body">
+                         <ul>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Mari Gold</span>
+                                </div>
+                                <div>
+                                    <span>Tredar</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Keya</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Diamond</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Lilly's</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Fremant</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Boroclas</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            <li><mat-checkbox class="mat-check">
+                                <div>
+                                    <span>Avocads</span>
+                                </div>
+                                <div>
+                                    <span>(13)</span>
+                                </div>
+                            </mat-checkbox></li>
+                            
+                         </ul>
+                    </div><!---end-->
+                    <!--filter-btn-->
+                    <div class="filter-btn">
+                        <button><i class="fa fa-trash"></i>Clear</button>
+                    </div>
+                </div><!---end-->
+
+            </div><!---end-->
+
+            <!--show-product-area-->
+            <div class="show-product-area">
+                <!--show-product-header-->
+                <div class="show-product-header">
+                    <!--show-select-->
+                    <div class="show-select select">
+                        <div>
+                             <h3>SHOW :</h3>
+                        </div>
+                        <div>
+                            <select>
+                                <option value="12">12</option>
+                                <option value="12">24</option>
+                                <option value="12">36</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--show-select2-->
+                    <div class="sort-select select">
+                        <div>
+                            <h3>SHORT BY :</h3>
+                       </div>
+                       <div>
+                           <select>
+                               <option value="12">Default</option>
+                               <option value="12">Trending</option>
+                               <option value="12">Featured</option>
+                               <option value="12">Recommend</option>
+                           </select>
+                       </div>
+                    </div>
+                    <!---icon-menu-->
+                     <div class="icon-menu">
+                        <ul>
+                             <li><span [ngClass]="{'active': filterSlide == false}"><i class="fas fa-th"></i></span></li>
+                             <li><span><i class="fas fa-th-large"></i></span></li>
+                             <li><span><i class="fas fa-th-list"></i></span></li>
+                             <li class="filter"><span (click)="filterSlideToggle()" [ngClass]="{'active': filterSlide == true}"><i class="fa fa-filter"></i></span></li>
+                        </ul>
+                     </div>
+                </div><!---end-->
+                <!--show-product-main-->
+                <div class="show-product-main">
+                    <app-product-card-one *ngFor="let product of  products" [product]="product"></app-product-card-one>
+                </div>
+
+
+            </div><!--show-product-end-->
+
+        </div>
+    </div>
+</div>
+<div class="overlay" (click)="filterSlideToggle()" *ngIf="filterSlide == true"></div>

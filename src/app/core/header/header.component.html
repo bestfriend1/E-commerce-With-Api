@@ -1,0 +1,227 @@
+<main *ngIf="headerOnHide == true">
+    <!----header-area -->
+<header>
+    <div class="header-top-area"  [ngClass]="{'header-top-invisible':headerTop == false}">
+        <div class="container">
+            <div class="header-top-main">
+                <div class="header-discount">
+                    <div>
+                        <h3>20% Discount All New Customers</h3>
+                    </div>
+                    <div>
+                        <button>Get Register</button>
+                    </div>
+                </div>
+                <div class="header-top-close">
+                    <span (click)="closeHeaderTop()"><i class="fa fa-xmark"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-midle" [ngClass]="{'header-fixed': headerFixed == true}">
+        <div class="container">
+        
+            <div class="header-midle-main">
+                <div class="header-logo">
+                   <a routerLink="/"><img src="./assets/images/brand/logo/logo.png" alt=""></a>
+                </div>
+                <!---join-->
+                <div class="join" routerLink="../login">
+                    <div>
+                        <img src="./assets/images/brand/png/user.png" alt="">
+                    </div>
+                    <div>
+                        <a routerLink="../login">Join</a>
+                    </div>
+                </div>
+
+                <!---search-->
+                <div class="search-area">
+                    <div class="search-main">
+                        <div class="search-input">
+                            <input type="text" value="" #input>
+                        </div>
+                        <div class="search-btn">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!---icon-menu-->
+                <div class="header-midle-right">
+                    <div class="icon-menu">
+                        <ul>
+                            <li><a href="#"><i class="fa-solid fa-shuffle"></i> <span>0</span></a></li>
+                            <li><a href="#"><i class="fa fa-heart"></i>
+                                <span>0</span>
+                            </a></li>
+                            <li (click)="cartSlideShow()"><a >
+                                <i class="fa-solid fa-basket-shopping"></i>
+                                <span>9+</span>
+                            </a></li>
+                        </ul>
+                    </div>
+                    <div class="total-price" (click)="cartSlideShow()">
+                        <span>Total Price</span>
+                        <h3>$346.00</h3>
+                    </div>
+                </div>
+            </div>
+
+               <!---header-midle-res--->
+               <div class="header-midle-res">
+                <div class="header-midle-res-main">
+                    <div class="join">
+                        <div>
+                            <img src="./assets/images/brand/png/user.png" alt="">
+                        </div>
+                    </div>
+                    <div class="header-logo">
+                        <a routerLink="/"><img src="./assets/images/brand/logo/logo.png" alt=""></a>
+                     </div>
+                    <div class="res-search-icon">
+                        <button (click)="resSearchBoxToggle()"><i [class]=" resSearchShow?'fa fa-xmark':'fa fa-search'"></i></button>
+                    </div>
+                </div>
+                 <!---search-->
+                 <div class="search-area" *ngIf="resSearchShow == true">
+                    <div class="search-main">
+                        <div class="search-input">
+                            <input type="text" value="" placeholder="Search Anything...">
+                        </div>
+                        <div class="search-btn">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div><!---res-end-->
+
+
+        </div>
+    </div>
+    <!---header-bottom-->
+    <div class="header-bottom">
+        <div class="container">
+            <div class="header-bottom-main">
+                <!---header-menu-->
+                <div class="header-menu">
+                    <ul>
+                        <li><a routerLink="/">Home </a></li>
+                        <li><a routerLink="/product-list">Category</a></li>
+                        <li><a routerLink="/offers">Offers</a></li>
+                        <li><a href="#">Authentic </a></li>
+                        <li><a href="#">Blogs </a></li>
+                        <li><a href="#">Need Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="header-len">
+                    <ul>
+                        <li><i class="fa fa-flag"></i> <span>English <i class="fa fa-angle-down"></i></span></li>
+                        <li><i class="fas fa-funnel-dollar"></i> <span>Doller <i class="fa fa-angle-down"></i></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--bottom-nav-->
+<div class="bottom-nav">
+    <ul>
+        <li>
+            <a routerLink="/">
+                <span><i class="fa fa-home"></i></span>
+                <h4>Home</h4>
+            </a>
+        </li>
+        <li>
+            <a routerLink="./product-list">
+                <span><i class="fas fa-list"></i></span>
+                <h4>category</h4>
+            </a>
+        </li>
+        <li>
+            <a (click)="cartSlideShow()">
+                <span><i class="fas fa-shopping-basket"></i></span>
+                <h4>cartlist</h4>
+                <small>9+</small>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/">
+                <span><i class="fas fa-heart"></i></span>
+                <h4>wishlist</h4>
+                <small>0</small>
+            </a>
+        </li>
+        <li>
+            <a routerLink="/">
+                <span><i class="fas fa-random"></i></span>
+                <h4>compare</h4>
+                <small>0</small>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+<!--overlay-->
+<div class="overlay" (click)="cartSlideHide()" *ngIf="cartSlide"></div>
+<!------------------------------cart-slide-------------------------->
+<div class="cart-slide-area" [ngClass]="{'cart-slide-active': cartSlide}">
+    <!---cart-slide-top-->
+    <div class="cart-slide-top">
+        <h3><i class="fas fa-shopping-basket"></i>   Total Item (5)</h3>
+        <span (click)="cartSlideHide()"><i class="fa fa-xmark"></i></span>
+    </div><!---end-->
+    <!---cart-slide-main-->
+    <div class="cart-slide-main">
+        <!---cart-item-->
+        <div class="cart-item" *ngFor="let data of [1,2,3,4,5,6,7]">
+            <div class="cart-img">
+                 <img src="./assets/images/temp/image/product.jpg" alt="">
+                 <div class="del">
+                    <span><i class="fa fa-trash-alt"></i></span>
+                 </div>
+            </div>
+            <div class="cart-text">
+                <h4>Existing Product Name</h4>
+                <span>Unit Price - $8.75</span>
+                <div class="quantity-price">
+                    <div class="quantity">
+                        <div>
+                            <button><i class="fa fa-minus"></i></button>
+                        </div>
+                        <div>
+                            <input type="text" value="1">
+                        </div>
+                        <div>
+                            <button><i class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="price">
+                        <b>$56.98</b>
+                    </div>
+                </div>
+            </div>
+        </div><!---item-end-->
+
+    </div><!--end-->
+
+    <!---cart-slide-bottom-->
+    <div class="cart-slide-bottom">
+        <h3>Do you have a coupon code?</h3>
+        <a href="#">
+            <p>Proceed To Checkout</p>
+            <span>$369.78</span>
+        </a>
+    </div><!---end-->
+</div>
+
+</main>
+
+
+
+
