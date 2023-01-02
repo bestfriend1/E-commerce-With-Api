@@ -8,8 +8,8 @@ import { Subscription } from 'rxjs';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
-  @ViewChild("input") searchInput!:ElementRef;
+export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild("input") searchInput!: ElementRef;
   headerTop = true;
   resSearchShow = false;
   headerFixed = false;
@@ -18,23 +18,23 @@ export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
   /***
    * subscription
    */
-    private headerHideRoute!:Subscription;
-    /***
-     * Search Anim Proparty
-     */
-    txt ="Search products in greeny...";
-    char = 0;
-    typeOutOnGoing:any;
+  private headerHideRoute!: Subscription;
+  /***
+   * Search Anim Proparty
+   */
+  txt = "Search products in greeny...";
+  char = 0;
+  typeOutOnGoing: any;
 
 
   constructor(
-    private router:Router,
-    private carousel:CarouselCntrlService 
+    private router: Router,
+    private carousel: CarouselCntrlService
   ) { }
   ngAfterViewInit(): void {
     this.searchAnim();
   }
- 
+
 
   ngOnInit(): void {
     this.scrollTopToStart();
@@ -44,24 +44,24 @@ export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
   /**
    * Close Header TopBar
    */
-  closeHeaderTop(){
+  closeHeaderTop() {
     this.headerTop = false;
   }
   /***
    * Responsive search bar toggle 
    */
-  resSearchBoxToggle(){
-    this.resSearchShow =! this.resSearchShow;
+  resSearchBoxToggle() {
+    this.resSearchShow = !this.resSearchShow;
   }
   /***
    * header Fixed;
    */
   @HostListener('window:scroll')
-  scrollBody(){
-    if(window.scrollY > 400 ){
+  scrollBody() {
+    if (window.scrollY > 400) {
       this.headerFixed = true;
       console.log('Header Fixed');
-    }else{
+    } else {
       this.headerFixed = false;
       console.log('Header Not Fixed');
     }
@@ -69,34 +69,43 @@ export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
   /***
    * Scroll Top To Start
    */
-  scrollTopToStart(){
-    this.router.events.subscribe((e) =>{
-      if(!(e instanceof NavigationEnd)){
+  scrollTopToStart() {
+    this.router.events.subscribe((e) => {
+      if (!(e instanceof NavigationEnd)) {
         return;
       }
-      window.scrollBy(0,0);
+      window.scrollBy(0, 0);
     })
-   
+
   }/** End */
   /**
    * HeaderControll()
    */
-  headerControll(){
+  headerControll() {
     //Navigate controll
-    this.headerHideRoute = this.router.events.subscribe(() =>{
-      if(this.router.url == "/login" || this.router.url == "/registration" || this.router.url == "/reset-password"){
+    this.headerHideRoute = this.router.events.subscribe(() => {
+      if (this.router.url == "/login" || this.router.url == "/registration" || this.router.url == "/reset-password") {
         this.headerOnHide = false;
-      }else{
+      } else {
         this.headerOnHide = true;
       }
     })
     //Initial Load Controll 
-    if(this.router.url == "/login" || this.router.url == "/registration" || this.router.url == "/reset-password"){
+    if (this.router.url == "/login" || this.router.url == "/registration" || this.router.url == "/reset-password") {
       this.headerOnHide = false;
-    }else{
+    } else {
       this.headerOnHide = true;
     }
-    
+
+  }
+
+  //SEARCH PRODUCTS
+  searchProduct(searchValue: any) {
+    if (searchValue) {
+      this.router.navigate(['./', 'product-list'], { queryParams: { q: searchValue.toLowerCase() } });
+    } else {
+      console.log('please enter your search key word');
+    }
   }
 
 
@@ -105,16 +114,16 @@ export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
    *  cartSlideShow()
    *  cartSlideHide()
    */
-  cartSlideShow(){
+  cartSlideShow() {
     this.cartSlide = true;
   }
-  cartSlideHide(){
+  cartSlideHide() {
     this.cartSlide = false;
   }
   /**
    * Animation
    */
-  searchAnim(){
+  searchAnim() {
     const target = this.searchInput.nativeElement as HTMLInputElement;
     target.placeholder = "|";
     this.typeIt(target);
@@ -122,20 +131,20 @@ export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
   /***
    * typeIt();
    */
-  typeIt(target:HTMLInputElement){
+  typeIt(target: HTMLInputElement) {
     var time = 180;
-     this.typeOutOnGoing = setInterval(() => {
+    this.typeOutOnGoing = setInterval(() => {
       this.char++;
       var typeValue = this.txt.slice(0, this.char);
       target.placeholder = typeValue + "|";
-       /***
-        * Char Condition
-        */
-        if(this.char == this.txt.length){
-          this.char = 0;
-          target.placeholder = "|";
-        }
-     },time);
+      /***
+       * Char Condition
+       */
+      if (this.char == this.txt.length) {
+        this.char = 0;
+        target.placeholder = "|";
+      }
+    }, time);
   }
 
   /**
@@ -143,11 +152,11 @@ export class HeaderComponent implements OnInit,OnDestroy,AfterViewInit {
    */
   ngOnDestroy(): void {
 
-    if(this.headerHideRoute){
+    if (this.headerHideRoute) {
       this.headerHideRoute.unsubscribe();
     }
-   
+
   }
-  
+
 
 }

@@ -39,6 +39,9 @@ export class ProductControlService implements OnInit {
   getProductByCategory(category:any){
    return this.httpClient.get<any>(`${baseUrl}/products/category/${category}`);
   }
+  searchAllProduct(q:any){
+    return this.httpClient.get<any>(`${baseUrl}/products/search?q=${q}`);
+  }
 
 
 }

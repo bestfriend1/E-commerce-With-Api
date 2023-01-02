@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductControlService } from '../../services/product-control.service';
 import { NgxLoaderService } from '../../services/ngx-loader.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnDestroy {
   //DATA STORE VARIABLES;
 
   products!: Product[];
-  categoryName:any;
+  categoryName: any;
+  searchQuery: any;
+  searchSub!: Subscription;
 
   filterSlide = false;
 
@@ -25,15 +28,24 @@ export class ProductListComponent implements OnInit {
     private ngxLoader: NgxLoaderService
   ) { }
 
+
   ngOnInit(): void {
+    
+    this.searchSub = this.activateRoute.queryParamMap.subscribe((qParam) => {
+      this.searchQuery = qParam.get('q');
+      if (this.searchQuery) {
+        this.searchProduct(this.searchQuery);
+      }
+    })
     this.activateRoute.queryParamMap.subscribe((qParam) => {
       this.categoryName = qParam.get("categoryName");
-      if(this.categoryName ){
-          this.getProductByCategory(this.categoryName);
-      }else{
+      if (this.categoryName) {
+        this.getProductByCategory(this.categoryName);
+      } else {
         this.getAllProduct();
       }
     })
+
   }
   /*** 
    * controllFilterSlide
@@ -81,8 +93,31 @@ export class ProductListComponent implements OnInit {
       }
     )
   }
+  searchProduct(q: any) {
+    this.ngxLoader.onShowLoader();
+    this.productService.searchAllProduct(q).subscribe(
+      (res) => {
+        if (res) {
+          this.products = res.products;
+          console.log(this.products);
+          this.ngxLoader.onHideLoader();
+        }
+      },
+      // (err) => {
+      //   if (err) {
+      //     console.log(err);
+      //     this.ngxLoader.onHideLoader();
+      //   }
+      // }
+    )
+  }
 
 
+  ngOnDestroy(): void {
+    if (this.searchSub) {
+      this.searchSub.unsubscribe();
+    }
+  }
 
 
 }
