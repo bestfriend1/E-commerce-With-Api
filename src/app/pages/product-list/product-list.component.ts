@@ -16,9 +16,12 @@ export class ProductListComponent implements OnInit, OnDestroy {
   products!: Product[];
   categoryName: any;
   searchQuery: any;
-  searchSub!: Subscription;
 
   filterSlide = false;
+  //SUBSCRIPTION
+  subCategory!: Subscription;
+  subProduct!: Subscription;
+  subProductByCat!: Subscription;
 
 
   constructor(
@@ -30,14 +33,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    
-    this.searchSub = this.activateRoute.queryParamMap.subscribe((qParam) => {
-      this.searchQuery = qParam.get('q');
-      if (this.searchQuery) {
-        this.searchProduct(this.searchQuery);
-      }
-    })
-    this.activateRoute.queryParamMap.subscribe((qParam) => {
+    // GET CATEGORY QUERY PERAMITTER
+    this.subCategory = this.activateRoute.queryParamMap.subscribe((qParam) => {
       this.categoryName = qParam.get("categoryName");
       if (this.categoryName) {
         this.getProductByCategory(this.categoryName);
@@ -62,7 +59,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   getAllProduct() {
     this.ngxLoader.onShowLoader();
-    this.productService.getAllProduct().subscribe(
+    this.subProduct = this.productService.getAllProduct().subscribe(
       (res) => {
         if (res) {
           this.products = res.products;
@@ -79,7 +76,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   }
   getProductByCategory(category: any) {
     this.ngxLoader.onShowLoader();
-    this.productService.getProductByCategory(category).subscribe((res) => {
+    this.subProductByCat = this.productService.getProductByCategory(category).subscribe((res) => {
       if (res) {
         this.products = res.products;
         this.ngxLoader.onHideLoader();
@@ -93,29 +90,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
       }
     )
   }
-  searchProduct(q: any) {
-    this.ngxLoader.onShowLoader();
-    this.productService.searchAllProduct(q).subscribe(
-      (res) => {
-        if (res) {
-          this.products = res.products;
-          console.log(this.products);
-          this.ngxLoader.onHideLoader();
-        }
-      },
-      // (err) => {
-      //   if (err) {
-      //     console.log(err);
-      //     this.ngxLoader.onHideLoader();
-      //   }
-      // }
-    )
-  }
 
 
+
+  //ON DESTROY ALL SUBSCRIPTION
   ngOnDestroy(): void {
-    if (this.searchSub) {
-      this.searchSub.unsubscribe();
+    if (this.subProduct) {
+      this.subProduct.unsubscribe();
+    }
+    if (this.subProductByCat) {
+      this.subProductByCat.unsubscribe();
+    }
+    if (this.subCategory) {
+      this.subCategory.unsubscribe();
     }
   }
 

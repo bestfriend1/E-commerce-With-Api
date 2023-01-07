@@ -1,0 +1,66 @@
+<div class="container-fluid" >
+    <div class="side-bar" id="main-sidebar-container-area">
+      <div class="profile-view">
+        <div class="img-thumb">
+          <img [src]="userInfo?.image? userInfo?.image : imgPlaceHolder " [alt]="'Picked Image'">
+          <div class="edit-profile-img">
+            <button mat-icon-button (click)="profileImagePicker.click()">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <input [hidden]="true" #profileImagePicker type="file"/>
+        </div>
+        <div class="desc">
+          <h2>{{userInfo?.firstName + userInfo?.lastName}}</h2>
+          <p>01881325038</p>
+        </div>
+      </div> <!--  END PROFILE VIEW -->
+  
+      <div class="nav-link">
+        <ul>
+          <li [routerLink]="['basic-info']" routerLinkActive="active-list">
+            <mat-icon>perm_identity</mat-icon>
+            <span> Basic Information</span>
+          </li>
+          <li [routerLink]="['address']" routerLinkActive="active-list">
+            <mat-icon class="material-icons-outlined">room</mat-icon>
+            <span> Address</span>
+          </li>
+          <li [routerLink]="['order-list']" routerLinkActive="active-list">
+            <mat-icon>toc</mat-icon>
+            <span> Order List</span>
+          </li>
+          <li  [routerLink]="['wishlist']" routerLinkActive="active-list">
+            <mat-icon>favorite</mat-icon>
+            <span>Wishlist</span>
+          </li>
+          <li [routerLink]="['reviews']" routerLinkActive="active-list">
+            <mat-icon>star</mat-icon>
+            <span> Review</span>
+          </li>
+          <li [routerLink]="['change-password']" routerLinkActive="active-list">
+            <mat-icon>lock</mat-icon>
+            <span> Change Password</span>
+          </li>
+          <li  [routerLink]="['transactions']" routerLinkActive="active-list">
+            <mat-icon>payments</mat-icon>
+            <span> Transactions</span>
+          </li>
+          <!-- <li  [routerLink]="['../apply-membership']" routerLinkActive="active-list">
+            <mat-icon>person</mat-icon>
+            <span>Apply Membership</span>
+          </li> -->
+          <li>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </li>
+        </ul>
+      </div>
+  
+  
+    </div>
+    <div class="content-view" >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

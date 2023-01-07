@@ -1,0 +1,39 @@
+@import "src/theme/exports/table-one";
+@import"src/theme/base";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding-bottom: 10px;
+  h2 {
+    text-align: center;
+    font-family: $font-en-primary;
+  }
+  button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    color: $heading-color;
+    font-family: $font-en-primary;
+    font-style: normal;
+    font-weight: 400;
+    border: 1px solid transparent;
+    background-color: transparent;
+    padding: 7px 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+    i{
+        font-size: 13px;
+    }
+  }
+}
+
+
+.img-thumb {
+  width: 85px;
+  height: 85px;
+  object-fit: scale-down;
+}

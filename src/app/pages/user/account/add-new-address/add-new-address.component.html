@@ -1,0 +1,43 @@
+<div class="added-area">
+      <div class="added-top">
+          <h3>Add New Address</h3>
+      </div>
+      <div class="added-form">
+         <form>
+            <div class="form-input">
+                 <mat-radio-group>
+                     <mat-radio-button value="home">Home</mat-radio-button>
+                     <mat-radio-button value="office">Office</mat-radio-button>
+                     <mat-radio-button value="other">Other</mat-radio-button>
+                 </mat-radio-group>
+            </div>
+            <div class="form-input">
+                <mat-form-field appearance="outline" class="w-100 d-block field">
+                    <mat-label>Choose City</mat-label>
+                    <mat-select>
+                      <mat-option value="Dhaka">Dhaka</mat-option>
+                      <mat-option value="Feni">Feni</mat-option>
+                      <mat-option value="Chittagong">Chittagong</mat-option>
+                      <mat-option value="Kumilla">Kumilla</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+            <div class="form-input">
+                <mat-form-field appearance="outline" class="w-100 d-block field">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput value="" type="text" placeholder="phone number">
+                </mat-form-field>
+            </div>
+            <div class="form-input">
+                 <h3>Address</h3>
+                 <mat-form-field appearance="outline" class="w-100 d-block field">
+                    <mat-label>Your Address</mat-label>
+                    <textarea matInput placeholder="enter your address" cols="10" rows="6"></textarea>
+                  </mat-form-field>
+            </div>
+            <div class="add-btn">
+                 <button mat-button mat-dialog-close>Save Address Info</button>
+            </div>
+         </form>
+      </div>
+</div>

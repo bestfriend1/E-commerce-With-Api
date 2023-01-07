@@ -12,7 +12,7 @@
                  <p>Use Your Credentials To Access</p>
             </div>
             <!---form-main-->
-            <form action="#">
+            <form  [formGroup]="formData" (ngSubmit)="userLoginAuth()">
                 <!---form-main-->
                 <div class="form-main">
                     <!---social-->
@@ -29,22 +29,23 @@
                         <div class="or">
                             <span>Or</span>
                         </div>
-                       
                     </div>
                     <!--input-area-->
                     <div class="form-input-area">
                          <div class="form-input-area-main">
                             <div class="form-input">
-                                <input type="email" value="" placeholder="Enter Your Email" autocomplete="off">
+                                <input type="text" value="" placeholder="Enter Your User Name" autocomplete="off" formControlName="username" required>
+                                <span *ngIf="formData.get('username')?.invalid && formData.get('username')?.touched">This Field Is Required</span>
                             </div>
                             <div class="form-input">
-                               <input type="password" value="" placeholder="Enter Your Password">
+                               <input type="password" value="" placeholder="Enter Your Password" formControlName="password" required>
+                               <span *ngIf="formData.get('password')?.invalid && formData.get('password')?.touched">This Field Is Required</span>
                            </div>
                            <div class="form-input" style="margin-bottom: 15px;">
-                               <mat-checkbox class="mat-check">Remember Me</mat-checkbox>
+                               <mat-checkbox class="mat-check" formControlName="terms" required>Remember Me</mat-checkbox>
                            </div>
                            <div class="form-sub-btn">
-                               <button>Login</button>
+                               <button type="submit">Login</button>
                            </div>
                          </div>
                          <!--forget-area-->

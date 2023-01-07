@@ -158,6 +158,14 @@
     line-height: 1.5;
     transition: all 0.3s linear ;
 }
+.form-input span{
+    color: #E60023;
+    font-family: $font-en-primary;
+    font-weight: 400;
+    font-size: 15px;
+    margin-top: 5px;
+    display: block;
+}
 .form-input input:focus{
     border-color: $color-primary;
 }

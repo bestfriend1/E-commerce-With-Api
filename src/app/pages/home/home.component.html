@@ -12,7 +12,7 @@
                     <div class="category-menu">
                         <ul>
                             <li *ngFor="let category of categorys?.slice(0,12)"><a [routerLink]="['/product-list']" [queryParams] ="{categoryName:category}">{{category ? category : 'N / A'}}</a> <i class="fa fa-angle-right"></i></li>
-                            <li><a href="#">See All</a> <i class="fa fa-angle-right"></i></li>
+                            <li><a routerLink="../product-list">See All</a> <i class="fa fa-angle-right"></i></li>
                         </ul>
                     </div>
             

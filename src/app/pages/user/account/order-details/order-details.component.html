@@ -1,0 +1,160 @@
+
+
+  
+  <section class="admin-data-sec">
+  
+    <div class="top-data-header">
+      <div class="title">
+        <h2>Order Details</h2>
+      </div>
+      <div class="header">
+        <button mat-raised-button  style="background-color: #05861b; color: #fff;">
+          <mat-icon>file_download</mat-icon>
+          Download Pdf
+        </button>
+      
+        <button mat-raised-button style="background-color: #c92127;color: #fff;">
+          <mat-icon>print</mat-icon>
+          Print Order
+        </button>
+    </div>
+    </div> <!-- END TOP DATA HEADER -->
+  
+    <hr class="center-square">
+    <div class="profile">
+      <div class="info">
+        <h2>Checkout Date: Sep 3,2022</h2>
+        <div class="row">
+          <h2>Payment Status: unpaid
+        </h2>
+          <h2>Payment Type: cash on delivery</h2>
+        </div>
+        <h2>Order Status: Pending</h2>
+        <h2>Last Update: Sep 3, 2022</h2>
+      </div>
+    </div>
+  
+    <div class="table-wrapper space">
+        <table>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td><img src="./assets/images/temp/products/01.jpg" alt=""></td>
+                <td>Capsicum</td>
+                <td>1kg</td>
+                <td>1</td>
+                <td>৳ 275</td>
+            </tr>
+        </table>
+    </div>
+    <div class="record-btn">
+         <button mat-button style="background-color: #C92127; color:#fff; max-width: 160px; width: 100%; display: block; margin-left: auto; margin-bottom: 15px;">Record</button>
+    </div>
+  
+    <div class="bottom-view">
+      <div class="action info">
+        <div class="item" style="border-bottom: none;">
+          <div class="left">
+            Name
+          </div>
+          <div class="right">
+            <p>Shamim Hossain</p>
+          </div>
+        </div>
+  
+        <div class="item" style="border-bottom: none;">
+          <div class="left">
+            Phone No
+          </div>
+          <div class="right">
+            <p>01881325037</p>
+          </div>
+        </div>
+  
+        <div class="item" style="border-bottom: none;">
+          <div class="left">
+            Email
+          </div>
+          <div class="right">
+            <p>autanber111@gmail.com</p>
+          </div>
+        </div>
+  
+        <div class="item">
+          <div class="left">
+            City
+          </div>
+          <div class="right">
+            <p class="bold">Feni</p>
+          </div>
+        </div>
+  
+        <div class="item">
+          <div class="left">
+            Shipping Address
+          </div>
+          <div class="right">
+            <p class="bold">Dhaka</p>
+          </div>
+        </div>
+      </div>
+  
+      <div class="action calculation">
+        <div class="item" style="border-bottom: none;">
+          <div class="left">
+            Sub Total (৳)
+          </div>
+          <div class="right">
+            <p>250</p>
+          </div>
+        </div>
+  
+        <div class="item" style="border-bottom: none;">
+          <div class="left">
+            Delivery Charge (৳)
+          </div>
+          <div class="right">
+            <p>20</p>
+          </div>
+        </div>
+  
+        <div class="item" style="border-bottom: none;">
+          <div class="left">
+            Discount (-৳)
+          </div>
+          <div class="right">
+            <p>10</p>
+          </div>
+        </div>
+  
+        <div class="item">
+          <div class="left">
+            Grand Total (৳)
+          </div>
+          <div class="right">
+            <p class="bold">260</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!-- <div class="order-timeline" *ngIf="order?.hasOrderTimeline">
+      <div class="view">
+        <div class="title">
+          <h2>Order Timeline</h2>
+        </div>
+        <div class="content">
+          <app-order-timeline [order]="order"></app-order-timeline>
+        </div>
+      </div>
+    </div> -->
+  
+  
+  </section>
+  

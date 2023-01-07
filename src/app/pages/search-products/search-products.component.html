@@ -1,0 +1,70 @@
+<!--banner-area-->
+<div class="banner-area">
+    <div class="container">
+        <div class="banner-main">
+            <h1>Search List</h1>
+            <ul>
+                <li><a routerLink="/home">Home</a></li>
+                <li><span>/</span></li>
+                <li><a>Search List</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!---product-list-area-->
+<div class="product-list-area">
+    <!--container-->
+    <div class="container">
+        <!---product-list-main-->
+        <div class="product-list-main">
+            <!--show-product-area-->
+            <div class="show-product-area">
+                <!--show-product-header-->
+                <div class="show-product-header">
+                    <!--show-select-->
+                    <div class="show-select select">
+                        <div>
+                             <h3>SHOW :</h3>
+                        </div>
+                        <div>
+                            <select>
+                                <option value="12">12</option>
+                                <option value="12">24</option>
+                                <option value="12">36</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--show-select2-->
+                    <div class="sort-select select">
+                        <div>
+                            <h3>SHORT BY :</h3>
+                       </div>
+                       <div>
+                           <select>
+                               <option value="12">Default</option>
+                               <option value="12">Trending</option>
+                               <option value="12">Featured</option>
+                               <option value="12">Recommend</option>
+                           </select>
+                       </div>
+                    </div>
+                    <!---icon-menu-->
+                     <div class="icon-menu">
+                        <ul>
+                             <!-- <li><span ><i class="fas fa-th"></i></span></li> -->
+                             <li><span><i class="fas fa-th-large"></i></span></li>
+                             <li><span><i class="fas fa-th-list"></i></span></li>
+                        </ul>
+                     </div>
+                </div><!---end-->
+                <!--show-product-main-->
+                <div class="show-product-main">
+                    <app-product-card-one *ngFor="let product of  products" [product]="product"></app-product-card-one>
+                </div>
+
+
+            </div><!--show-product-end-->
+
+        </div>
+    </div>
+</div>

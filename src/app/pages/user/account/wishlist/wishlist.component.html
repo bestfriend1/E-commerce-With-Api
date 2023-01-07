@@ -1,0 +1,41 @@
+
+<div class="header">
+    <h2>Wishlist</h2>
+  </div>
+  
+  <hr class="center-ball">
+  
+  
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr class="table-head">
+        <th scope="col">{{'Image'}}</th>
+        <th scope="col">{{'Product Name'}}</th>
+        <th scope="col">{{'Brand'}}</th>
+        <th scope="col">{{'Price'}}</th>
+        <th scope="col">{{'Availability'}}</th>
+        <th scope="col">{{'Action'}}</th>
+      </tr>
+      </thead> <!-- End Table Head -->
+      <tr *ngFor="let data of [1,2,3,4]">
+        <td [attr.data-label]="'Product Image'">
+          <img src="./assets/images/temp/products/01.png" alt="" class="img-thumb">
+        </td>
+        <td [attr.data-label]="'Product Name'">Capsicum</td>
+        <td [attr.data-label]="'Brand'">N/A</td>
+        <td [attr.data-label]="'Price'">৳23</td>
+        <td [attr.data-label]="'Availability'">In Stock</td>
+        <td [attr.data-label]="'Actions'">
+          <button style="margin-right: 5px;" mat-mini-fab color="warn" style="background-color:#232433; margin-right: 5px;">
+            <mat-icon>delete</mat-icon>
+          </button>
+  
+          <button mat-mini-fab color="primary"  style="background-color:#232433;">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </tr><!-- End Table Body -->
+    </table>
+  </div>
+  

@@ -1,0 +1,45 @@
+<div class="content-area">
+    <div class="view-list">
+      <div class="header">
+        <div class="main">
+          <h1 class="title"><mat-icon class="material-symbols-outlined">grid_view</mat-icon> PERSONAL INFORMATION</h1>
+          <button mat-button (click)="openNewDialog()">Edit</button>
+        </div>
+      </div>
+      <div class="data-view">
+        <table class="data-info-table">
+          <tbody>
+          <tr class="info-group">
+            <td class="label">Full Name</td>
+            <td class="value">{{userInfo?.firstName + userInfo?.lastName}}</td>
+          </tr>
+          <tr class="info-group">
+            <td class="label">Phone No</td>
+            <td class="value">01881325037</td>
+          </tr>
+          <tr class="info-group">
+            <td class="label">Email</td>
+            <td class="value">{{userInfo?.email}}</td>
+          </tr>
+          <tr class="info-group">
+            <td class="label">Gender</td>
+            <td class="value">{{userInfo?.gender}}</td>
+          </tr>
+         <tr class="info-group">
+           <td class="label">Date of Birth</td>
+           <td class="value">21/03/2000</td>
+         </tr>
+          <tr class="info-group">
+            <td class="label">Member Since</td>
+            <td class="value">2 July, August</td>
+          </tr>
+         <tr class="info-group">
+           <td class="label">Occupation</td>
+           <td class="value">Job Holder</td>
+         </tr>
+  
+          </tbody>
+        </table>
+      </div>
+    </div>
+  

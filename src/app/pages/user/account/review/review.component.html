@@ -1,0 +1,44 @@
+
+<div class="header">
+    <h2>Your Reviews</h2>
+  </div>
+  
+  <hr class="center-ball">
+  
+  
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr class="table-head">
+        <th scope="col">{{'Image'}}</th>
+        <th scope="col">{{'Product Name'}}</th>
+        <th scope="col">{{'Review Date'}}</th>
+        <th scope="col">{{'Review'}}</th>
+        <th scope="col">{{'Status'}}</th>
+        <th scope="col">{{'Rating'}}</th>
+        <th scope="col">{{'Action'}}</th>
+      </tr>
+      </thead> <!-- End Table Head -->
+      <tr>
+        <td [attr.data-label]="'Product Image'">
+          <img src="./assets/images/temp/products/01.png" alt="" class="img-thumb">
+        </td>
+        <td [attr.data-label]="'Product Name'">Capsicum</td>
+        <td [attr.data-label]="'Review Date'">Sep 3, 2022</td>
+        <td [attr.data-label]="'Review'">Nice Product</td>
+        <td [attr.data-label]="'Status'">In Stock</td>
+        <td [attr.data-label]="'Rating'">5</td>
+
+        <td [attr.data-label]="'Actions'">
+          <button style="margin-right: 5px;" mat-mini-fab color="warn" style="background-color:#232433; margin-right: 5px;">
+            <mat-icon>delete</mat-icon>
+          </button>
+  
+          <button mat-mini-fab color="primary"  style="background-color:#232433;">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </tr><!-- End Table Body -->
+    </table>
+  </div>
+  

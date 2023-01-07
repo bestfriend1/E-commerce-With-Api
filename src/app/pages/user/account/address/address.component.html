@@ -1,0 +1,39 @@
+
+<div class="header">
+    <h2>Shipping Address</h2>
+    <button type="button" (click)="openDialog()"><i class="fa fa-plus"></i> Add New Address</button>
+</div>
+  
+  <hr class="center-ball">
+  
+  
+  <div class="table-container">
+    <table>
+      <thead>
+      <tr class="table-head">
+        <th scope="col">{{'Address Type'}}</th>
+        <th scope="col">{{'City'}}</th>
+        <th scope="col">{{'Phone No'}}</th>
+        <th scope="col">{{'Shipping Address'}}</th>
+        <th scope="col">{{'Action'}}</th>
+      </tr>
+      </thead> <!-- End Table Head -->
+      <tr *ngFor="let data of [1,2,3,4]">
+        <td [attr.data-label]="'Address Type'">Home</td>
+        <td [attr.data-label]="'City'">Dhaka</td>
+        <td [attr.data-label]="'Phone No'">01881325037</td>
+        <td [attr.data-label]="'Shipping Address'">Gulshan, Dhaka</td>
+
+        <td [attr.data-label]="'Actions'">
+          <button style="margin-right: 5px;" mat-mini-fab color="warn" style="background-color:#232433; margin-right: 5px;">
+            <mat-icon>delete</mat-icon>
+          </button>
+  
+          <button mat-mini-fab color="primary"  style="background-color:#232433;">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </td>
+      </tr><!-- End Table Body -->
+    </table>
+  </div>
+  

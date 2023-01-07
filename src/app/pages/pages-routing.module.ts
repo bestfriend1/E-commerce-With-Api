@@ -29,6 +29,10 @@ const routes: Routes = [
         loadChildren: () => import('./product-list/product-list.module').then(m => m.ProductListModule)
       },
       {
+        path:"search-product",
+        loadChildren: () => import('./search-products/search-products.module').then(m => m.SearchProductsModule)
+      },
+      {
         path:"login",
         loadChildren: () => import('./user/login/login.module').then(m => m.LoginModule)
       },
@@ -39,6 +43,10 @@ const routes: Routes = [
       {
         path:"reset-password",
         loadChildren: () => import('./user/reset-password/reset-password.module').then(m => m.ResetPasswordModule)
+      },
+      {
+        path:'account',
+        loadChildren: () => import('./user/account/account.module').then(m => m.AccountModule)
       }
      
     ]

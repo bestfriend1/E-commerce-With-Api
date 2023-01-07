@@ -102,7 +102,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   //SEARCH PRODUCTS
   searchProduct(searchValue: any) {
     if (searchValue) {
-      this.router.navigate(['./', 'product-list'], { queryParams: { q: searchValue.toLowerCase() } });
+      this.router.navigate(['./', 'search-product'], { queryParams: { q: searchValue.toLowerCase() } });
     } else {
       console.log('please enter your search key word');
     }

@@ -1,0 +1,146 @@
+@import "src/theme/variables";
+
+.content-area {
+  width: 100%;
+  height: auto;
+}
+
+.view-list {
+  min-height: 200px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #3e3e3e;
+    display: grid;
+    place-items: center;
+    color: #FFFFFF;
+  }
+
+  .main {
+    flex: 1;
+    border-bottom: 1px solid #cccccc;
+    display: flex;
+    justify-content: space-between;
+
+    .title {
+      font-family: $font-en-primary;
+      font-style: normal;
+      color: $heading-color;
+      font-weight: 500;
+      font-size: 17px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    button{
+        color: $heading-color;
+        font-family: $font-en-primary;
+        font-size: 17px;
+        font-weight: 500;
+        background-color: transparent;
+    }
+  }
+}
+
+/**
+VIEW TABLE
+ */
+
+.data-view {
+  padding-left: 35px;
+  margin-top: 20px;
+}
+
+.data-info-table {
+  margin-top: 16px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
+//   font-family: $segoe_ui_regular;
+  line-height: 36px;
+  width: 100%;
+}
+
+
+.info-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 10px;
+
+  .label {
+    display: block;
+    position: relative;
+    color: $heading-color;
+    font-family: $font-en-primary;
+    font-weight: 500;
+    font-size: 16px;
+    max-width: 130px;
+    width: 100%;
+  }
+
+  .value {
+    color: $heading-color;
+    font-family: $font-en-primary;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    width: 100%;
+    display: block;
+    word-break: break-word;
+  }
+}
+
+@media only screen and (max-device-width: 599px) {
+  .header {
+    //display: flex;
+    //flex-direction: row;
+    //gap: 16px;
+
+    .icon {
+      //width: 40px;
+      //height: 40px;
+      //border-radius: 40px;
+      //background: #3e3e3e;
+      //display: grid;
+      //place-items: center;
+      //color: #FFFFFF;
+    }
+
+    .main {
+      //flex: 1;
+      //border-bottom: 1px solid #cccccc;
+      //display: flex;
+      //justify-content: space-between;
+
+      .title {
+        //font-family: $segoe_ui_bold;
+        font-size: 14px;
+        //color: #5d5d5d;
+      }
+    }
+  }
+}
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 200,
+    'GRAD' 0,
+    'opsz' 48
+  }
+  @media(max-width:450px){
+    .data-view{
+      padding-left: 0px!important;
+    }
+  }
+  
