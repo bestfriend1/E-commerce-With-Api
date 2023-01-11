@@ -15,4 +15,16 @@ export class UserAuthHandleService {
   userLogin(logData:any){
     return this.httpClient.post<any>(`${baseUrl}/auth/login`,logData);
   }
+
+  //ADD USER  HTTP REQUEST
+
+  userReg(data:any){
+    return this.httpClient.post(`${baseUrl}/users/add`,data);
+  }
+
+  getSingleUserById(userId:any){
+    return this.httpClient.get(`${baseUrl}/users/${userId}`);
+  }
+
+
 }

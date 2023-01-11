@@ -43,5 +43,11 @@ export class ProductControlService implements OnInit {
     return this.httpClient.get<any>(`${baseUrl}/products/search?q=${q}`);
   }
 
+  // CART API HANDLE 
+  addToCart(data:any){
+    return this.httpClient.post(`${baseUrl}/carts/add`,data);
+  }
+
+
 
 }
